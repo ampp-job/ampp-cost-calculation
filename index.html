@@ -1,0 +1,131 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111827">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Калькулятор АМПП</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="screen-calculator" class="screen active">
+      <header class="page-header">
+        <p class="eyebrow">LAMODA · АМПП</p>
+        <h1>Калькулятор тарифа</h1>
+        <p>Версия тарифов из загруженного файла</p>
+      </header>
+
+      <section class="panel inputs">
+        <label>
+          <span>Город</span>
+          <select id="city"></select>
+        </label>
+
+        <label>
+          <span>Длительность смены</span>
+          <select id="shift">
+            <option value="6">6 часов</option>
+            <option value="7">7 часов</option>
+            <option value="8">8 часов</option>
+            <option value="9">9 часов</option>
+            <option value="10">10 часов</option>
+            <option value="11">11 часов</option>
+            <option value="12">12 часов</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Количество операций</span>
+          <input id="operations" type="number" min="0" step="1" inputmode="numeric">
+        </label>
+
+        <div class="meta-grid">
+          <div><span>Рабочее время</span><strong id="real-hours">—</strong></div>
+          <div><span>Применяемый тариф</span><strong id="tariff-kind">—</strong></div>
+          <div><span>Дивизион</span><strong id="division">—</strong></div>
+          <div><span>Производительность</span><strong id="productivity">—</strong></div>
+        </div>
+
+        <p id="rate-details" class="rate-details"></p>
+      </section>
+
+      <div id="status" class="notice neutral"></div>
+
+      <section class="results">
+        <article class="result-card primary">
+          <span>Затраты Lamoda</span>
+          <strong id="total">—</strong>
+        </article>
+        <article class="result-card">
+          <span>На руки исполнителю · 65%</span>
+          <strong id="performer">—</strong>
+        </article>
+        <article class="result-card">
+          <span>Доход КА · 35%</span>
+          <strong id="agency">—</strong>
+        </article>
+        <article class="result-card">
+          <span>Стоимость операции</span>
+          <strong id="per-operation">—</strong>
+        </article>
+      </section>
+    </section>
+
+    <section id="screen-compare" class="screen">
+      <header class="page-header">
+        <p class="eyebrow">МОДУЛЬ</p>
+        <h1>Сравнение</h1>
+        <p>Следующая версия: сравнение двух смен и пороговой производительности.</p>
+      </header>
+      <section class="panel placeholder">
+        <strong>Модуль подготовлен к развитию</strong>
+        <p>Здесь можно будет сравнивать 6 и 8–12 часов, стоимость операции и доходность КА.</p>
+      </section>
+    </section>
+
+    <section id="screen-tariffs" class="screen">
+      <header class="page-header">
+        <p class="eyebrow">СПРАВОЧНИК</p>
+        <h1>Тарифы</h1>
+        <p>111 городов из исходного файла.</p>
+      </header>
+      <input id="tariff-search" class="search" type="search" placeholder="Город или дивизион">
+      <section id="tariff-list" class="tariff-list"></section>
+    </section>
+
+    <section id="screen-settings" class="screen">
+      <header class="page-header">
+        <p class="eyebrow">ПРИЛОЖЕНИЕ</p>
+        <h1>Настройки</h1>
+        <p>Данные сохраняются только на этом устройстве.</p>
+      </header>
+      <section class="panel settings">
+        <div>
+          <span>Логика смен</span>
+          <p>6 ч → тариф 6 часов. Смены 7–12 ч → тариф 8 часов.</p>
+        </div>
+        <div>
+          <span>Распределение</span>
+          <p>Исполнитель — 65%, КА — 35% от стоимости смены.</p>
+        </div>
+        <button id="reset" class="danger">Сбросить выбранные значения</button>
+      </section>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Навигация">
+    <button class="nav-btn active" data-tab="calculator"><b>⌁</b><span>Калькулятор</span></button>
+    <button class="nav-btn" data-tab="compare"><b>⇄</b><span>Сравнение</span></button>
+    <button class="nav-btn" data-tab="tariffs"><b>₽</b><span>Тарифы</span></button>
+    <button class="nav-btn" data-tab="settings"><b>⚙</b><span>Настройки</span></button>
+  </nav>
+
+  <script src="./app.js"></script>
+</body>
+</html>

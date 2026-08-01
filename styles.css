@@ -1,0 +1,80 @@
+
+:root {
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  background: #f3f4f6;
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: #f3f4f6; }
+button, input, select { font: inherit; }
+.app-shell { width: min(100%, 620px); margin: 0 auto; padding: 22px 16px 112px; }
+.screen { display: none; }
+.screen.active { display: block; }
+.page-header { margin: 4px 4px 20px; }
+.page-header h1 { margin: 3px 0 5px; font-size: 30px; letter-spacing: -0.04em; }
+.page-header p { margin: 0; color: #6b7280; line-height: 1.45; }
+.eyebrow { color: #111827 !important; font-size: 12px; font-weight: 800; letter-spacing: .14em; }
+
+.panel, .result-card, .tariff-row {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(17,24,39,.05);
+}
+.panel { padding: 18px; }
+.inputs label { display: block; margin-bottom: 16px; }
+.inputs label > span, .settings span {
+  display: block; margin-bottom: 7px; font-size: 13px; font-weight: 750; color: #374151;
+}
+select, input {
+  width: 100%; min-height: 52px; border: 1px solid #d1d5db; border-radius: 14px;
+  background: #f9fafb; padding: 0 14px; font-size: 17px; color: #111827; outline: none;
+}
+select:focus, input:focus, .search:focus { border-color: #111827; box-shadow: 0 0 0 3px rgba(17,24,39,.09); }
+.meta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px; }
+.meta-grid div { padding: 12px; border-radius: 14px; background: #f3f4f6; }
+.meta-grid span { display: block; color: #6b7280; font-size: 11px; margin-bottom: 4px; }
+.meta-grid strong { font-size: 14px; }
+.rate-details { color: #6b7280; font-size: 12px; margin: 14px 2px 0; }
+
+.notice { margin: 14px 0; border-radius: 14px; padding: 12px 14px; font-size: 13px; line-height: 1.35; }
+.notice.neutral { background: #e5e7eb; color: #374151; }
+.notice.good { background: #dcfce7; color: #166534; }
+.notice.warn { background: #fef3c7; color: #92400e; }
+
+.results { display: grid; gap: 12px; }
+.result-card { padding: 18px; }
+.result-card span { color: #6b7280; font-size: 13px; }
+.result-card strong { display: block; margin-top: 7px; font-size: 27px; letter-spacing: -.035em; }
+.result-card.primary { background: #111827; color: white; border-color: #111827; }
+.result-card.primary span { color: #d1d5db; }
+
+.bottom-nav {
+  position: fixed; z-index: 10; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: min(100%, 620px); display: grid; grid-template-columns: repeat(4,1fr);
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.94);
+  backdrop-filter: blur(18px); border-top: 1px solid #e5e7eb;
+}
+.nav-btn { border: 0; background: transparent; color: #9ca3af; padding: 7px 2px; border-radius: 12px; }
+.nav-btn b { display: block; font-size: 20px; line-height: 1; margin-bottom: 5px; }
+.nav-btn span { display: block; font-size: 10px; font-weight: 700; }
+.nav-btn.active { color: #111827; background: #f3f4f6; }
+
+.search { margin-bottom: 14px; }
+.tariff-list { display: grid; gap: 10px; }
+.tariff-row { padding: 14px 16px; display: grid; gap: 9px; }
+.tariff-row strong { font-size: 16px; }
+.tariff-row small { display: block; color: #6b7280; margin-top: 3px; }
+.tariff-values { display: grid; gap: 4px; font-size: 12px; color: #374151; }
+.placeholder { color: #374151; line-height: 1.55; }
+.placeholder strong { font-size: 18px; }
+.settings { display: grid; gap: 18px; }
+.settings p { margin: 0; color: #4b5563; line-height: 1.45; }
+.danger { border: 0; border-radius: 14px; padding: 14px; background: #fee2e2; color: #991b1b; font-weight: 750; }
+.empty { color: #6b7280; text-align: center; padding: 30px; }
+
+@media (min-width: 520px) {
+  .results { grid-template-columns: 1fr 1fr; }
+  .result-card.primary { grid-column: 1 / -1; }
+}
